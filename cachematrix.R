@@ -11,8 +11,8 @@ makeCacheMatrix <- function(x = matrix()) ##setting matrix to default
 {
   iv <- NULL
   set <- function(y) {
-    x <<- y
-    iv <<- NULL ##setting solved value to NULL
+    x <<- y  ##sets value in parent environment
+    iv <<- NULL ##setting iv to NULL if new matrix
   }
   get <- function() x
   setsolve <- function(solve) iv <<- solve 
@@ -39,3 +39,6 @@ cacheSolve <- function(x, ...) {
   x$setsolve(iv)
   iv
 }
+
+## Tested using the 'simple test matrix for lexical scoping program assignment'
+## forum post by Alan E. Berger, results matched.
